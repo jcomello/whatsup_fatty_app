@@ -1,0 +1,19 @@
+<h3><%= t('.title') %></h3>
+
+<p><%= notice %></p>
+
+<% if @insults.present? %>
+<ul>
+  <% @insults.each do |insult| %>
+  <li>
+    <span><%= insult.eating_what %></span>
+    <p><%= insult.phrase %></p>
+    <%= link_to t('.edit'), edit_insult_path(insult) %>
+  </li>
+  <% end %>
+</ul>
+<% else %>
+  <p><%= t('.not_found') %></p>
+<% end %>
+
+<%= link_to t('.new'), new_insult_path %>
